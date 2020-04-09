@@ -1,0 +1,8 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: nginx
+packageMetadata:
+  tags:
+  - kpt.dev/app=nginx
+  shortDescription: kpt nginx package
