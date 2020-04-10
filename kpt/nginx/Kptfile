@@ -21,3 +21,8 @@ openAPI:
           enumValues:
             small: "0.5"
             medium: "2"
+    io.k8s.cli.setters.tag:
+      x-k8s-cli:
+        setter:
+          name: tag
+          value: v1

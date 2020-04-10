@@ -12,7 +12,9 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx 
+        app: nginx
+      annotations:
+        tags: v1 # {"$ref":"#/definitions/io.k8s.cli.setters.tag"}
     spec:
       containers:
       - name: nginx
