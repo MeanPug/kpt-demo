@@ -6,3 +6,18 @@ packageMetadata:
   tags:
   - kpt.dev/app=nginx
   shortDescription: kpt nginx package
+openAPI:
+  definitions:
+    io.k8s.cli.setters.replicas:
+      x-k8s-cli:
+        setter:
+          name: replicas
+          value: "5"
+    io.k8s.cli.setters.cpu:
+      x-k8s-cli:
+        setter:
+          name: cpu
+          value: "medium"
+          enumValues:
+            small: "0.5"
+            medium: "2"

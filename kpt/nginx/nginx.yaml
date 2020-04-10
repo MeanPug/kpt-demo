@@ -5,14 +5,14 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 3
+  replicas: 5 # {"$ref":"#/definitions/io.k8s.cli.setters.replicas"}
   selector:
     matchLabels:
       app: nginx
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx 
     spec:
       containers:
       - name: nginx
