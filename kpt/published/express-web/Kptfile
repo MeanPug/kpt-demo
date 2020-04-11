@@ -1,0 +1,35 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: express-web
+packageMetadata:
+  tags:
+  - kpt.dev/app=express-web
+  shortDescription: kpt express app for web package
+openAPI:
+  definitions:
+    io.k8s.cli.setters.replicas:
+      x-k8s-cli:
+        setter:
+          name: replicas
+          value: "3"
+    io.k8s.cli.setters.tag:
+      x-k8s-cli:
+        setter:
+          name: tag
+          value: latest
+    io.k8s.cli.setters.image:
+      x-k8s-cli:
+        setter:
+          name: image
+          value: meanpugdigital/kpt-demo
+    io.k8s.cli.substitutions.image-value:
+      x-k8s-cli:
+        substitution:
+          name: image-value
+          pattern: IMAGE_NAME:TAG_SETTER
+          values:
+          - marker: TAG_SETTER
+            ref: '#/definitions/io.k8s.cli.setters.tag'
+          - marker: IMAGE_NAME
+            ref: '#/definitions/io.k8s.cli.setters.image'
