@@ -1,0 +1,28 @@
+{
+  "name": "simple-express-app",
+  "version": "1.0.0",
+  "description": "a simple express app demonstrating Kubernetes kpt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeanPug/kpt-demo.git"
+  },
+  "keywords": [
+    "kpt",
+    "kubernetes",
+    "node",
+    "express"
+  ],
+  "author": "Bobby Steinbach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MeanPug/kpt-demo/issues"
+  },
+  "homepage": "https://github.com/MeanPug/kpt-demo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
