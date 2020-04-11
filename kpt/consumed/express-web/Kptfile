@@ -1,0 +1,42 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: express-web
+upstream:
+  type: git
+  git:
+    commit: 04b2b6776dfa60f877cfdbe8f7d96fe56cdf6fee
+    repo: https://github.com/MeanPug/kpt-demo
+    directory: kpt/published/express-web
+    ref: master
+packageMetadata:
+  tags:
+  - kpt.dev/app=express-web
+  shortDescription: kpt express app for web package
+openAPI:
+  definitions:
+    io.k8s.cli.setters.image:
+      x-k8s-cli:
+        setter:
+          name: image
+          value: ppp
+    io.k8s.cli.setters.replicas:
+      x-k8s-cli:
+        setter:
+          name: replicas
+          value: "3"
+    io.k8s.cli.setters.tag:
+      x-k8s-cli:
+        setter:
+          name: tag
+          value: 0.0.1
+    io.k8s.cli.substitutions.image-value:
+      x-k8s-cli:
+        substitution:
+          name: image-value
+          pattern: IMAGE_NAME:TAG_SETTER
+          values:
+          - marker: TAG_SETTER
+            ref: '#/definitions/io.k8s.cli.setters.tag'
+          - marker: IMAGE_NAME
+            ref: '#/definitions/io.k8s.cli.setters.image'

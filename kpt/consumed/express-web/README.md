@@ -1,17 +1,17 @@
-nginx
+express-web
 ==================================================
 
 # NAME
 
-  nginx
+  express-web
 
 # SYNOPSIS
 
-  kubectl apply --recursive -f nginx
+  kubectl apply --recursive -f express-web
 
 # Description
 
-kpt nginx package
+kpt express app for web package
 
 # SEE ALSO
 

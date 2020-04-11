@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: express-web-nginx-sites-configmap
+  labels:
+    meanpug.com/app: express-web
+data:
+  express-web.conf: |
+    server {
+        listen 80;
+        server_name test-express.meanpugk8.com;
+        location /  {
+            proxy_pass    http://localhost:3000;
+            proxy_set_header Host $host;
+        }
+    }

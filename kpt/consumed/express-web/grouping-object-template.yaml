@@ -1,5 +1,5 @@
 # NOTE: auto-generated. Some fields should NOT be modified.
-# Date: 2020-04-10 21:49:38 EDT
+# Date: 2020-04-11 01:36:34 EDT
 #
 # Contains the "grouping object" template ConfigMap.
 # When this object is applied, it is handled specially,
@@ -18,18 +18,18 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  # NOTE: The name of the grouping object does NOT have
-  # any impact on group-related functionality such as
-  # deletion or pruning.
-  name: grouping-object
   # DANGER: Do not change the grouping object namespace.
   # Changing the namespace will cause a loss of continuity
   # with previously applied grouped objects. Set deletion
   # and pruning functionality will be impaired.
   namespace: default
+  # NOTE: The name of the grouping object does NOT have
+  # any impact on group-related functionality such as
+  # deletion or pruning.
+  name: grouping-object
   labels:
     # DANGER: Do not change the value of this label.
     # Changing this value will cause a loss of continuity
     # with previously applied grouped objects. Set deletion
     # and pruning functionality will be impaired.
-    cli-utils.sigs.k8s.io/inventory-id: test-701315216
+    cli-utils.sigs.k8s.io/inventory-id: express-web-217516068

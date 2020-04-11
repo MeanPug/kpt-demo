@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-web-deployment
+  labels:
+    app: express-web
+    meanpug.com/app: express-web
+spec:
+  replicas: 1 # {"$ref":"#/definitions/io.k8s.cli.setters.replicas"}
+  selector:
+    matchLabels:
+      app: express-web
+  template:
+    metadata:
+      labels:
+        app: express-web
+    spec:
+      volumes:
+      - name: sites-enabled
+        configMap:
+          name: express-web-nginx-sites-configmap
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        volumeMounts:
+        - name: sites-enabled
+          mountPath: /etc/nginx/conf.d/
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      - name: express
+        image: ppp:0.0.1 # {"$ref":"#/definitions/io.k8s.cli.substitutions.image-value"}
+        command: ["node", "src/index.js"]
+        ports:
+        - containerPort: 3000
+          name: app
